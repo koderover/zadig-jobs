@@ -1,0 +1,19 @@
+name: hello-world
+version: "v0.0.1"
+description: "hello world"
+image: alpine/curl:3.14
+cmds: 
+- "/bin/sh"
+- "-c"
+args:
+- "echo $(inputs.CONTENT)"
+
+envs:
+- name: CONTENT
+  value: $(inputs.CONTENT)
+  
+inputs:
+- name: CONTENT
+  description: "content to print"
+  type: string
+  default: "hello world"
